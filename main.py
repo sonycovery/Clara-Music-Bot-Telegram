@@ -18,7 +18,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 					level=logging.INFO)
 
 def start(update, context):
-	context.bot.send_message(chat_id=update.effective_chat.id, text="Hi I'm @XxonixXMusicBot developed by @SonyCovery\nI can convert video music from youtube to audio\ntry `/play unstoppable`")
+	context.bot.send_message(chat_id=update.effective_chat.id, text="Hi..I'm @XxonixXMusicBot developed by @SonyCovery\nI can convert video music from Youtube to audio\n1. /start for check me online or not?\n2. /play unstoppable")
 
 def convert(update, context):
 	try:
@@ -29,7 +29,7 @@ def convert(update, context):
 		def duration_checker(info, *, incomplete):
 			"""Download only videos shorter than 2 minutes (or with unknown duration)"""
 			duration = info.get('duration')
-			if duration and duration > 2800:
+			if duration and duration > 18000:
 				return 'The video is too long'
 
 		ydl_opts = {
@@ -70,7 +70,7 @@ def a(update, context):
 	def duration_checker(info, *, incomplete):
 		"""Download only videos shorter than 2 minutes (or with unknown duration)"""
 		duration = info.get('duration')
-		if duration and duration > 2800:
+		if duration and duration > 18000:
 			return 'The video is too long'
 
 	ydl_opts = {
@@ -80,12 +80,12 @@ def a(update, context):
 
 	try:
 		results = []
-		count = 0
+		count = 5
 		while len(results) == 0 and count < 6:
-			if count>0:
+			if count>5:
 				os.times.sleep(1)
 			results = YoutubeSearch(query, max_results=1).to_dict()
-			count += 1
+			count += 5
 		# results = YoutubeSearch(query, max_results=1).to_dict()
 		try:
 			link = f"https://youtube.com{results[0]['url_suffix']}"
